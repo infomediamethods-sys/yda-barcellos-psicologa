@@ -186,7 +186,7 @@ strong { font-weight: 500; }
 /* Acolhimento: título, texto e uma frase em destaque (09/10/2026: no celular estava só texto corrido) */
 .acolhimento__grade { display: grid; gap: var(--space-5); }
 .acolhimento h2 { font-size: var(--fs-h3); max-width: 16ch; }
-.acolhimento__corpo { display: grid; gap: var(--space-6); }
+.acolhimento__corpo { display: grid; gap: var(--space-6); align-content: center; }
 .destaque {
   font-family: var(--font-titulo); font-size: var(--fs-h4); line-height: 1.35; color: var(--text);
   border-left: 2px solid var(--accent); padding: var(--space-2) 0 var(--space-2) var(--space-5);
@@ -359,3 +359,19 @@ strong { font-weight: 500; }
 .pagina-simples h2 { font-size: var(--fs-h4); margin-top: var(--space-7); }
 .pagina-simples h2 + p { margin-top: var(--space-3); }
 .pagina-simples .texto { margin-top: var(--space-5); }
+
+/* Fotos de banco ao lado do texto (acolhimento, terapia, como funciona) — 09/10/2026 */
+.midia--secao { aspect-ratio: 4 / 3; }
+.midia--secao img { object-position: 50% 55%; }
+.acolhimento__lado { display: grid; gap: var(--space-5); align-content: start; }
+.terapia__midia, .funciona__midia { margin-top: var(--space-6); }
+@media (min-width: 600px) and (max-width: 899px) {
+  .midia--secao { max-width: var(--midia-tablet); }
+}
+@media (min-width: 900px) {
+  .midia--secao { aspect-ratio: 4 / 5; }
+  .acolhimento__lado { gap: var(--space-6); }
+  .terapia__midia { max-width: 420px; }
+  /* Retrato real do Instagram tem só 608 px: não esticar além disso */
+  #sobre .lado__midia { max-width: 440px; }
+}
