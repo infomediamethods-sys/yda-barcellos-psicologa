@@ -117,13 +117,13 @@ strong { font-weight: 500; }
   font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--accent-texto); line-height: 1.4; margin-top: var(--space-1);
 }
-.cabecalho__nav, .cabecalho__cta { display: none; }
-.cabecalho__menu {
-  flex-shrink: 0;
-  display: inline-grid; place-items: center;
-  width: var(--toque-min); height: var(--toque-min);
-  background: none; border: 0; color: var(--text); padding: 0;
+.cabecalho__nav { display: none; }
+/* Celular: sem menu de três tracinhos; o botão de WhatsApp fica no cabeçalho (regra do Armin, 06/10/2026) */
+.cabecalho__cta {
+  flex-shrink: 0; min-height: var(--toque-min); padding: var(--space-2) var(--space-4);
+  background: var(--accent); color: var(--surface-1);
 }
+.cabecalho__cta-extra { display: none; }
 .cabecalho__nav ul { display: flex; gap: var(--space-5); }
 .cabecalho__nav a {
   display: inline-flex; align-items: center; min-height: var(--toque-min);
@@ -132,9 +132,10 @@ strong { font-weight: 500; }
 .cabecalho__nav a:hover { color: var(--accent-texto); text-decoration: underline; text-underline-offset: 4px; }
 @media (min-width: 900px) {
   .cabecalho__barra { min-height: 88px; }
-  .cabecalho__menu { display: none; }
   .cabecalho__nav { display: block; margin-left: auto; }
-  .cabecalho__cta { display: inline-flex; }
+  .cabecalho__cta { min-height: 56px; padding: var(--space-4) var(--space-6); background: transparent; color: var(--accent); }
+  .cabecalho__cta:hover, .cabecalho__cta:focus-visible { background: var(--accent); color: var(--surface-1); }
+  .cabecalho__cta-extra { display: inline; }
   .marca__nome { font-size: 1.625rem; }
 }
 @media (min-width: 900px) and (max-width: 1099px) {
@@ -308,7 +309,7 @@ strong { font-weight: 500; }
 /* Celular: a reserva do botão fixo vai para dentro do rodapé escuro, não abaixo dele (lição) */
 @media (max-width: 899px) {
   body:has(.whatsapp-fixo) { padding-bottom: 0; }
-  .rodape { padding-bottom: calc(var(--space-6) + var(--space-9)); }
+  body:has(.whatsapp-fixo) .rodape { padding-bottom: calc(var(--space-6) + var(--space-9)); }
 }
 @media (min-width: 900px) {
   .duvidas__lista { margin-top: var(--space-7); }
