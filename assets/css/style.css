@@ -183,35 +183,64 @@ strong { font-weight: 500; }
   .heroi__midia { order: -1; height: auto; aspect-ratio: 4 / 5; }
 }
 
-/* Acolhimento */
+/* Acolhimento: título, texto e uma frase em destaque (09/10/2026: no celular estava só texto corrido) */
 .acolhimento__grade { display: grid; gap: var(--space-5); }
 .acolhimento h2 { font-size: var(--fs-h3); max-width: 16ch; }
+.acolhimento__corpo { display: grid; gap: var(--space-6); }
+.destaque {
+  font-family: var(--font-titulo); font-size: var(--fs-h4); line-height: 1.35; color: var(--text);
+  border-left: 2px solid var(--accent); padding: var(--space-2) 0 var(--space-2) var(--space-5);
+  max-width: 34ch;
+}
+.destaque em { font-style: italic; color: var(--accent-texto); }
 @media (min-width: 900px) {
   .acolhimento__grade { grid-template-columns: minmax(300px, 1fr) 2fr; gap: var(--space-8); }
 }
 
-/* Princípios */
+/* Princípios: três cartões com ícone */
 .principios { padding-block: var(--space-8); }
-.principios ul {
-  display: flex; flex-direction: column; align-items: center; gap: var(--space-4);
-  font-family: var(--font-titulo); font-size: var(--fs-h4); line-height: 1.3; text-align: center;
+.principios__lista { display: grid; gap: var(--space-4); }
+.principio {
+  display: grid; grid-template-columns: var(--icone-circulo) 1fr; gap: var(--space-4); align-items: start;
+  background: var(--surface-1); border-radius: var(--raio); padding: var(--space-5);
 }
-@media (min-width: 600px) {
-  .principios ul { flex-direction: row; justify-content: center; gap: var(--space-6); }
-  .principios li + li::before {
-    content: "·"; color: var(--accent); margin-right: var(--space-6); font-size: var(--fs-h4);
-  }
+.principio__icone {
+  display: inline-grid; place-items: center; width: var(--icone-circulo); height: var(--icone-circulo);
+  border: 1px solid var(--accent); border-radius: 999px; color: var(--accent);
+}
+.principio__icone .icone { width: var(--icone-card); height: var(--icone-card); }
+.principio__titulo { font-size: var(--fs-h4); line-height: 1.25; }
+.principio p { margin-top: var(--space-2); color: var(--text-soft); line-height: 1.55; }
+@media (min-width: 900px) {
+  .principios { padding-block: var(--space-9); }
+  .principios__lista { grid-template-columns: repeat(3, 1fr); gap: var(--space-5); }
+  .principio { grid-template-columns: 1fr; gap: var(--space-5); padding: var(--space-6); }
 }
 
-/* Terapia (centralizada) */
+/* Terapia: texto + lista com ícones */
+.terapia__grade { display: grid; gap: var(--space-6); }
+.terapia .texto { text-wrap: pretty; }
+.terapia__lista { border-top: 1px solid var(--border); }
+.terapia__lista li {
+  display: grid; grid-template-columns: var(--icone-circulo) 1fr; gap: var(--space-4); align-items: center;
+  padding-block: var(--space-4); border-bottom: 1px solid var(--border);
+  font-family: var(--font-titulo); font-size: 1.25rem; line-height: 1.3;
+}
+.terapia__icone {
+  display: inline-grid; place-items: center; width: var(--icone-circulo); height: var(--icone-circulo);
+  border-radius: 999px; background: var(--surface-2); color: var(--accent-texto);
+}
+.terapia__icone .icone { width: var(--icone-card); height: var(--icone-card); }
+.terapia__nota { margin-top: var(--space-5); color: var(--text-soft); max-width: 48ch; }
+@media (min-width: 900px) {
+  .terapia__grade { grid-template-columns: 5fr 6fr; gap: var(--space-9); align-items: center; }
+  .terapia__lista li { font-size: var(--fs-h4); padding-block: var(--space-5); }
+}
+
+/* Centralizado (CTA final) */
 .centralizado { text-align: center; }
 .centralizado .texto { margin-inline: auto; }
 .centralizado .titulo { max-width: 20ch; margin-inline: auto; }
-.terapia .texto { text-wrap: pretty; }
-@media (max-width: 599px) {
-  .terapia .centralizado { text-align: left; }
-  .terapia .titulo { margin-inline: 0; }
-}
 
 /* Como funciona */
 .funciona__grade { display: grid; gap: var(--space-6); }
