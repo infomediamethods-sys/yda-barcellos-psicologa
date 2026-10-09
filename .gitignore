@@ -14,3 +14,7 @@ LIBERADO-PARA-INDEXAR
 .claude/
 .DS_Store
 assets/img/_orig/
+
+# Marcador de aprovação do Armin (lido pelo publicador automático do Mac)
+APROVADO*
+CLAUDE.md
